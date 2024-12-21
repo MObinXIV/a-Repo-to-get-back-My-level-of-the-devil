@@ -18,19 +18,36 @@
 using namespace std;
 int main()
 {
-
    int height;
    cin>>height;
-   int stars=1;// the stars in the first line
-   for(int i =0;i<height;i++) // loop for the all height
+   
+   int stars = 1;
+   int spaces = height -1;
+   for(int i =0;i<height;i++)
    {
-      for(int h=height-1;h>i;h--)// the spaces loop
+      for(int j =0;j<spaces;j++)
       cout<<" ";
-      for(int j=stars;j>0;j--)
+   
+      for(int k=0;k<stars;k++)
       cout<<"*";
+   
       cout<<endl;
-     stars+=2;
+       stars+=2;
+      spaces--;
    }
+
+   // int height;
+   // cin>>height;
+   // int stars=1;// the stars in the first line
+   // for(int i =0;i<height;i++) // loop for the all height
+   // {
+   //    for(int h=height-1;h>i;h--)// the spaces loop
+   //    cout<<" ";
+   //    for(int j=stars;j>0;j--)
+   //    cout<<"*";
+   //    cout<<endl;
+   //   stars+=2;
+   // }
    // int height;
    // cin>>height;
    // int k =1;
