@@ -20,20 +20,16 @@ int main()
    {
       for(int j =0;j<spaces;j++)
       cout<<" ";
-      if(i==0 ||i==height-1){
+      
    
       for(int k=0;k<stars;k++)
-      cout<<"*";
-      
-      }
-      else{
-         for (int x=0;x<stars;x++){
-         if(x==0 || x==stars-1)
+      {
+         if(i==0 ||i==height-1|| k==0 || k==stars-1)
          cout<<"*";
          else
          cout<<" ";
-         }
       }
+      
       cout<<endl;
        stars+=2;
       spaces--;
