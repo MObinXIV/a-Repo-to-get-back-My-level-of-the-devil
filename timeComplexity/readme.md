@@ -11,6 +11,7 @@
 - Time complexity is a measure of the amount of time an algorithm takes to complete as a function of the length of the input. It helps to evaluate the efficiency of an algorithm by estimating its running time, typically expressed using Big O notation (e.g., O(n), O(log n), O(n^2)). This allows for comparison of different algorithms regardless of the hardware used.
 
 - It's rate at which time taken increases with respect to the input size.  U can call is as  an average way to calculate the algorithm taken time. so we use something named (Big-Oh) notation.
+  
 ---
 ## How to Analyze Time Complexity:
 
