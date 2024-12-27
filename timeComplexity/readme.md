@@ -18,6 +18,7 @@
 - Identify the key operations: Determine the operations that are most frequently executed within the algorithm (e.g., comparisons, assignments, loops).
 - Count the number of operations: Estimate how many times these key operations are executed as a function of the input size.
 - Express the time complexity: Express the number of operations using Big O notation.
+- **Whenever is division happening we plays in terms of log analysis**
 
 ## Space complexity (memory space) -> it's combination of 
 
