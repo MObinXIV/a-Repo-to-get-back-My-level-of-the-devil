@@ -64,3 +64,51 @@ v1.insert(v1.begin()+1 , 3); // insert it in the first line
     v.swap(v1);  // swap vectors
     v.pop_back();// pop the last element
     v.clear(); // clear the vector`
+
+`// it used to push elements in front of the list better than using insert in vector
+    list<int> ls;
+    ls.push_front(1);
+    ls.push_front(2);
+    ls.push_front(3);
+    ls.pop_front();`
+
+    `// HashSet -> sorted & unique
+   set<int> s;
+    s.insert(1);
+    s.insert(2);
+    s.insert(3);
+    auto it = s.find(2); // returns iterator to 2
+    cout<<*s.find(6)<<endl; // returns s.end() as elment not found
+    cout<<*it<<endl; // prints 2
+    s.erase(2); // removes 2 and keeps orer 
+
+    int cnt = s.count(2); // returns 1 if 2 is present else 0
+
+    // multiset -> sorted & duplicates
+    // works same as set but allows duplicates
+    multiset<int> ms;
+    ms.insert(1);
+    ms.insert(1);
+    ms.insert(1);
+    int cnt =ms.count(1); // returns 3
+    ms.erase(1); // removes all 1's
+    ms.erase(ms.find(1)); // removes only 1
+    ms.earse(ms.find(1), ms.find(1)+2); // removes only 1
+    // unorderdSet is unorderd only difference from multiset
+    `
+
+    `// unordered_map/map -> keys  are unique but the values can be repeated
+    unordered_map<int, int> umap;
+    umap[1] = 1;
+    umap.insert({2, 2});
+    map<pair<int, int>, int>ump;
+    ump.insert({{1, 2}, 3});
+    ump[{2,1}] = 3;
+    for(auto x: ump)
+    {
+        cout<<x.first.first<<"-"<<x.first.second<<" "<<x.second<<endl;
+    }`
+    
+    `// sorting 
+    sort(a,a+n) / sort(a.begin(),a.end());
+    sort(a,a+n,greater<int>); //sort decend order`
