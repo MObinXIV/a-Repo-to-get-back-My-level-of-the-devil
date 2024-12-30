@@ -20,7 +20,15 @@ void reverseString(vector<char>& s){
         swap(s[i],s[n-i-1]);
     }
 }
- 
+ void reverseString(vector<char>& s,int i,int n) {
+        if(i>=n)return;
+        swap(s[i],s[n]);
+        // call the recursion function move the i one forward and n one backward
+        reverseString(s,i+1,n-1);
+    }
+ void reverseString(vector<char>& s) {
+        reverseString(s,0,s.size()-1);
+    }
  int main() 
  {     
     vector<char> s = {'h','e','l','l','o'};
