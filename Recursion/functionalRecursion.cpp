@@ -1,4 +1,7 @@
 // Sum of first n natural numbers using recursion
+/*
+go to the end of the recursion and then start adding the values back to the top
+*/
 #include<bits/stdc++.h> 
  using namespace std;
  // functional way to print the sum
