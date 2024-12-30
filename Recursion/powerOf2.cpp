@@ -3,20 +3,19 @@
  using namespace std;
  // O(n) solution
 // bool isPowerOfTwo(int n) {
-//     if(n<=0) return false;
+//         if(n<=0) return false;
 //         bool f=true;
 //         while(n>1)
 //         {
 //             if(n%2)
 //             {
-//                 f=false;
-//                 break;
+//                 return false;
 //             }
 //             n/=2;  
 //         }
-//         if (f) return true;
-//         else return false;
-// }
+//          return true;
+       
+//     }
 
 
 /*
@@ -38,7 +37,14 @@ If you perform a bitwise AND operation (&) between the original number and its d
 The result will always be zero because there are no matching '1' bits in the same positions.
 
 */
-
+// O(n) solutoin
+ bool isPowerOfTwo(int n) {
+        if(n<=0) return false;
+        if (n==1) return true;
+        if(n%2) return false;
+    return isPowerOfTwo(n/2);
+       
+    }
  //O(1) solution
 
  bool powerOf2(int n) {
