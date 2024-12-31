@@ -5,8 +5,10 @@
 Modify only one answer
 */
 int  subsetSum(int i, vector<int>&nums,int n,int s,int sum){
-    
-    // Whenever I reach the end of the array, I will push the data structure into the answer
+    if(s>sum)
+    {
+        return 0;
+    }
     if(i==n )
     {
         if (s==sum)
