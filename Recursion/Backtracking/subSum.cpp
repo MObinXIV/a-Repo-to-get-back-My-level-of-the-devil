@@ -2,7 +2,7 @@
 #include<bits/stdc++.h> 
  using namespace std;
 
-// O(2^n) time complexity and O(n) space complexity
+// O(2^n*n) time complexity and O(n) space complexity
 void subsetSum(int i, vector<int>&nums,int n,vector<int>ds,vector<vector<int>>&ans,int s,int sum){
     
     // Whenever I reach the end of the array, I will push the data structure into the answer
