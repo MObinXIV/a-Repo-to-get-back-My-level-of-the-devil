@@ -13,6 +13,7 @@ int search(vector<int>& nums, int target) {
         int high=nums.size()-1;
         while(low<=high)
         {
+            // replacement formula -> mid=low+(low+high)/2 -> when we see the range goes to int_min and int_max
          int mid=(low+high)/2;
          if(target==nums[mid]) return mid;
          else if(target>nums[mid]) low = mid+1; 
