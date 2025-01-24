@@ -31,7 +31,7 @@ ListNode* removeNthFromEnd(ListNode* head, int n) {
         realSize--;
        }
        prev->next=tmp->next;
-       tmp->next-NULL;
+       tmp->next=NULL;
        delete tmp;
        return head;
         
