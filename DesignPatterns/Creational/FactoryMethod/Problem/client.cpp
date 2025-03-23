@@ -14,13 +14,3 @@ int main()
    else if (vehicleType=="bike") vehcile = new Bike();
    vehcile->createVehicle();
 }
-/*
-1- Singleton 
-2- Factory method ✅ 
-3- Observer 
-4- Startegy
-5- Decorator
-6- Builder 
-7- Adapter 
-8- Facade 
-*/   
