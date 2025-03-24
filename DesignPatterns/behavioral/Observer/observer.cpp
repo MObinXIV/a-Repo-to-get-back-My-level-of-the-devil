@@ -5,6 +5,7 @@ using namespace std;
 class Isubscriber{
    public:
    virtual void notify(string msg)=0;
+   
 };
 
 class User: public Isubscriber{
@@ -42,11 +43,18 @@ int main()
    
   Group*group=new Group();
   User*user1=new User(1);
-  User*user2 = new User(3);
+  User*user2 = new User(2);
   User*user3=new User(3);
   group->subscirbe(user1);
   group->subscirbe(user2);
   group->subscirbe(user3);
   group->notify("new message");
+
+group->unsubcribe(user1);
+group->notify("new message");
+   delete user1;
+    delete user2;
+    delete user3;
+    delete group;
 
 }
