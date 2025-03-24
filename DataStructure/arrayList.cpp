@@ -5,18 +5,20 @@ template <class T>
 class ArrayList{
 private:
     T *internalMemory;
-    int size;
-    int index;
+    int size;// Total allocated capacity
+    int index;// Number of actual elements
+
     void expand(){
 
-    size += 10;
-        T *temp = new T[size];
+    
+        T *temp = new T[size+10];
 
         for (int i = 0; i < size; i++)
             temp[i] = internalMemory[i];
 
         delete[] internalMemory;
         internalMemory = temp;
+        size += 10;
  }
 public:
  ArrayList(){
@@ -55,7 +57,7 @@ public:
         if(ind<0||ind>=size){
             throw out_of_range("Index is out of range");
         }
-        return internalMemory[index];
+        return internalMemory[ind];
     }
     int getSize(){
         return size;
@@ -84,5 +86,7 @@ public:
     {
         list.add(i);
     }
-    list.display();
+    // list.display();
+    for(int i =0 ; i<list.getSize();i++)
+    cout<<list[i]<<" ";
  }
