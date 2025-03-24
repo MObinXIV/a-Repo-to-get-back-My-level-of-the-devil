@@ -1,92 +1,140 @@
-// Desinging an array list 
-#include<bits/stdc++.h> 
- using namespace std;
+#include <bits/stdc++.h>
+using namespace std;
+
 template <class T>
-class ArrayList{
+class ArrayList {
 private:
     T *internalMemory;
-    int size;// Total allocated capacity
-    int index;// Number of actual elements
+    int capacity; // Total allocated capacity
+    int size;     // Number of actual elements
 
-    void expand(){
-
-    
-        T *temp = new T[size+10];
+    void expand() {
+        // Expand memory by 10 more slots
+        T *temp = new T[capacity + 10];
 
         for (int i = 0; i < size; i++)
             temp[i] = internalMemory[i];
 
         delete[] internalMemory;
         internalMemory = temp;
-        size += 10;
- }
-public:
- ArrayList(){
-     size=10;
-     index=0;
-     internalMemory=new T[size];
- }
- ArrayList(int size){
-     this->size=size;
-     index=0;
-     internalMemory=new T[size];
- }
- void add(T element){
-    if(index==size){
-        expand();
+        capacity += 10;
     }
-    internalMemory[index]=element;
-    index++;
- }
- void remove(int index)
-    {
-        if (index < 0 || index >= size)
-        {
+
+public:
+    // Default Constructor
+    ArrayList() {
+        capacity = 10;
+        size = 0;
+        internalMemory = new T[capacity]; // Fix: Allocate with capacity
+    }
+
+    // Constructor with custom initial capacity
+    ArrayList(int capacity) {
+        this->capacity = capacity;
+        size = 0;
+        internalMemory = new T[capacity];
+    }
+
+    // Add an element to the list
+    void add(T element) {
+        if (size == capacity) {
+            expand();
+        }
+        internalMemory[size] = element;
+        size++;
+    }
+
+    // Remove an element at a given index
+    void remove(int index) { // Fix: Changed parameter name
+        if (index < 0 || index >= size) {
             throw out_of_range("Index is out of range");
         }
 
-        for (int i = index; i < size - 1; i++)
-        {
-            // Shift all elements after the specified index one position to the left.
-            internalMemory[i] = internalMemory[i + 1];
+        for (int i = index; i < size - 1; i++) {
+            internalMemory[i] = internalMemory[i + 1]; // Shift left
         }
 
-        size--;
+        size--; // Reduce the count of valid elements
     }
-    T&operator[](int ind){
-        if(ind<0||ind>=size){
+
+    // Access elements safely
+    T& operator[](int ind) {
+        if (ind < 0 || ind >= size) { // Fix: Validate against size
             throw out_of_range("Index is out of range");
         }
         return internalMemory[ind];
     }
-    int getSize(){
-        return size;
+
+    // Get the number of actual elements
+    int getSize() {
+        return size; // Fix: Return size instead of capacity
     }
-    void display(){
-        for(int i=0;i<size;i++){
-            cout<<internalMemory[i]<<" ";
+
+    // Display the elements
+    void display() {
+        for (int i = 0; i < size; i++) {
+            cout << internalMemory[i] << " ";
         }
-        cout<<endl;
+        cout << endl;
     }
-    void clear(){
-        size=10;
-        index=0;
+
+    // Insert an item at a specific index
+    void insertItemAt(int index, T item) {
+        if (index < 0 || index > size) {
+            throw out_of_range("Index is out of range");
+        }
+
+        if (size == capacity) {
+            expand();
+        }
+
+        // Shift elements to the right
+        for (int i = size; i > index; i--) {
+            internalMemory[i] = internalMemory[i - 1];
+        }
+
+        internalMemory[index] = item; // Insert new item
+        size++;
+    }
+
+    // Clear the list
+    void clear() {
         delete[] internalMemory;
-        internalMemory=new T[size];
+        capacity = 10;
+        size = 0;
+        internalMemory = new T[capacity]; // Fix: Allocate with capacity
     }
-    ~ArrayList(){
+
+    // Destructor to free memory
+    ~ArrayList() {
         delete[] internalMemory;
     }
 };
- 
- int main() 
- {    
+
+int main() {
     ArrayList<int> list;
-    for (int i = 0; i < 20; i++)
-    {
+
+    for (int i = 0; i < 10; i++) {
         list.add(i);
     }
-    // list.display();
-    for(int i =0 ; i<list.getSize();i++)
-    cout<<list[i]<<" ";
- }
+
+    cout << "Original List: ";
+    list.display();
+
+    list.insertItemAt(3, 99); // Insert 99 at index 3
+    cout << "After inserting 99 at index 3: ";
+    list.display();
+
+    list.remove(5); // Remove element at index 5
+    cout << "After removing index 5: ";
+    list.display();
+
+    cout << "Element at index 3: " << list[3] << endl;
+    cout << "Size of list: " << list.getSize() << endl;
+
+    list.clear();
+    cout << "After clearing list: ";
+    list.display();
+
+    return 0;
+}
