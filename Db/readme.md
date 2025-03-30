@@ -1,0 +1,29 @@
+# Postgres commands (I forget)
+
+- Sorting - > **ORDER BY** (field_name).
+- Limiting -> **LIMIT** (number).
+- Unique values -> DISTINCT (field_name).
+- Specified attributes -> where field_name = "attribute" **AND**  ... 
+- ex ->  SELECT * FROM person WHERE gender='Male' AND ( country_of_birth='Japan' OR country_of_birth='Poland' ) ;
+- OFFSET -> skips (x) number of columns
+- IN ('','','',...) -> got multiChoices.
+- ex ->  SELECT * FROM person WHERE country_of_birth IN ('China','Brazil','Poland') LIMIT 10;
+- BETWEEN -> used to set a period between x and y 
+- ex -> SELECT * FROM person WHERE date_of_birth BETWEEN  '2024-06-03' AND '2024-06-27';
+- LIKE -> SELECT * FROM person where email LIKE '%.com';
+-  Group By -> SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth ORDER BY country_of_birth LIMIT 10 ;
+-  HAVING -> SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth HAVING COUNT(*)>5 ORDER BY country_of_birth LIMIT 10 ;
+-  MAX,MIN,AVG ->  SELECT MAX (price) from car ;
+-  ex-> SELECT make  , MIN(PRICE) from car group by make LIMIT 20;
+-  SUM -> SELECT make , SUM(price) FROM car group by make;
+-  applying arithmetic -> SELECT id , make , model , price AS originalPrice , ROUND (price * 0.10,2)AS ten_percent, ROUND (price-(price *0.10)) AS price_after_discount FROM car limit 20;
+-  COALESCE -> SELECT COALESCE(email,'EMAIL not provided') from person; it make the null emails with this value 
+-  Age-> SELECT first_name,last_name,gender,country_of_birth,date_of_birth,AGE(NOW(),date_of_birth)as age from person;
+-  UNIQUE -> ALTER TABLE person ADD CONSTRAINT unique_email_address UNIQUE(email);
+-  DELETE ->  DELETE FROM person where id = 1001;
+-  UPDATE -> UPDATE person SET email = 'Zahi@gmail.com' WHERE id =4;
+-  ON CONFLICT -> test=# INSERT INTO person (id,first_name,last_name,gender,email,date_of_birth,country_of_birth)values(5,'Taylor','Haddleston','Male','thaddleston4@creativecommons.org',' 2024-11-28','Colombia') ON CONFLICT(id) DO UPDATE SET email = EXCLUDED.email;
+-  FOREIGN KEY -> UPDATE person SET car_id=2 WHERE id=1;
+- JOIN (INNER)->test=# SELECT person.first_name , car.make , car.model,car.price FROM person JOIN car ON person.car_id=car.id; 
+- LEFT JOIN -> SELECT person.first_name , car.model FROM person  LEFT  JOIN ON  person.car_id=car.id WHERE car.* IS NULL;
+- 
