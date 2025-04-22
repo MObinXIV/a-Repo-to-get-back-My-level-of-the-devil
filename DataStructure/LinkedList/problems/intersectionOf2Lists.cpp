@@ -80,31 +80,4 @@
         return h1;
      }
 
-     void f(int n){
-        for(int i=0; i<n;i++)
-        {
-            cout<<i<<" ";
-        }
-     }
- int main() 
- {    
-    vector<vector<int>>matrix={{1,1,1},{1,0,1},{1,1,1}};
-    for(const auto&row:matrix)
-    {
-        for(const&col:row)
-        cout<<col<<" ";
-        cout<<endl;
-    }
-    int i =0 ; 
-    f(100);
-    while(i<5)
-    {
-        i++;
-        cout<<i<<endl;
-    }
-    
- }
-
-
-
  
