@@ -2,6 +2,14 @@
 #include<bits/stdc++.h> 
  using namespace std;
  // O(nlogn) + O(n)
+ /**
+  * git the real value if  all the numbers are ke 
+  * see if it's valid 
+  * if so maximize the window size 
+  * if not 
+  * shrink
+  * dry run the formula if U stuck 
+  */
  int maxFrequency(vector<int>& nums, int k) {
         sort(nums.begin(),nums.end());
         int left =0 ; 
