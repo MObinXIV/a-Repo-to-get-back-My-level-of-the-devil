@@ -26,6 +26,24 @@
             }
      }
  }
+
+ void bubblePass(vector<int>& arr, int n, int i) {
+    if (i == n - 1) return;
+  
+    if (arr[i] > arr[i + 1])
+        swap(arr[i], arr[i + 1]);
+  
+    bubblePass(arr, n, i + 1); // Move to the next pair
+  }
+  
+  // Recursive function to handle multiple passes
+  void bubbleSortRecursive(vector<int>& arr, int n) {
+    if (n == 1) return; // Base case
+  
+    bubblePass(arr, n, 0); // Do one full pass
+  
+    bubbleSortRecursive(arr, n - 1); // Recursive call for smaller part
+  }
  int main() 
  {    
     int n;
