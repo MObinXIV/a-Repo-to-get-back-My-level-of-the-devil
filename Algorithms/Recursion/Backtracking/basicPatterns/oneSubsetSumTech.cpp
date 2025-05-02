@@ -20,6 +20,7 @@ bool subsetSum(int i, vector<int>&nums,int n,vector<int>ds,vector<vector<int>>&a
     // Pick the element
     ds.push_back(nums[i]);
     s+=nums[i];
+    // Stop when U got one subseuqeunce 
     if(subsetSum(i+1,nums,n,ds,ans,s,sum)==true)return true;
     // Do not pick the element in the array subsequence
     ds.pop_back();

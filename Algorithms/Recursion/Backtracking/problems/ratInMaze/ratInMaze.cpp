@@ -2,6 +2,7 @@
 #include<bits/stdc++.h> 
 using namespace std;
 //I gurantee that the 1st element is 1 
+// O(4^(n^2))
 void solve(int x ,int y, int n, vector<vector<int>>& maze,vector<vector<int>>&visited,string path,vector<string>&res){
 
   if(x==n-1 && y==n-1) 
