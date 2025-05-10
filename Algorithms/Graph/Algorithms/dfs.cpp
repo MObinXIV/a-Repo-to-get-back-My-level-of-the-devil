@@ -4,14 +4,14 @@
  using namespace std;
  
     static int cnt;
- void dfs(int n , vector<int>adj[],int node,int visited[],vector<int>&ls){
+ void dfs(vector<int>adj[],int node,int visited[],vector<int>&ls){
     visited[node]=1;
     ls.push_back(node);
     for(int&it:adj[node]){
         // let's visit every node adj in case if it's not even visited before 
         cnt++;
         if(!visited[it])
-        dfs(n,adj,it,visited,ls);
+        dfs(adj,it,visited,ls);
     }
 
 
@@ -20,7 +20,7 @@
  vector<int>dfs(int n , vector<int>adj[],int start){
     vector<int>ls;
     int vis[n]={0};
-    dfs(n,adj,start,vis,ls);
+    dfs(adj,start,vis,ls);
     cout<<"count is "<<cnt<<endl;
 
     return ls;
