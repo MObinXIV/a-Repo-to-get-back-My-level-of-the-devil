@@ -37,8 +37,21 @@ bool isCycle(int V, vector<int> adj[]) {
 
     for (int i = 0; i < V; i++) {
         if (!vis[i]) {
-            if (detect(i, adj, vis)) return true;
+            // if (detect(i, adj, vis)) return true;
+            if(dfs(i,-1,vis,adj)==true) return true;
         }
     }
     return false; // No cycle in any component
+}
+
+// DFS 
+bool dfs(int node,int parent,vector<int>&vis,vector<int>adj[]){
+    vis[node]=1;
+    for(auto adjNode:adj[node]){
+        if(!vis[adjNode]){
+            if(dfs(adjNode,node,vis,adj)== true) return true;
+            else if(parent!=adjNode) return true;
+        }
+    }
+    return false;
 }
