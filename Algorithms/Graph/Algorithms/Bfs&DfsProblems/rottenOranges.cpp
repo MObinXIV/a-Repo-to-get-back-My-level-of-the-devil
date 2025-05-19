@@ -1,6 +1,7 @@
 //https://leetcode.com/problems/rotting-oranges/description/
 #include<bits/stdc++.h>
 using namespace std;
+// Hint -> Bfs is used here as it's level vise going to get from it minimum time
 int orangesRotting(vector<vector<int>>& grid) {
     if(grid.empty()) return 0;
         queue<pair<int,int>>rotten;//q to store & check rotten 
@@ -24,6 +25,7 @@ int orangesRotting(vector<vector<int>>& grid) {
             int size=rotten.size();
             // count the number of the number of the rotten 
             cnt+=size;
+            // for each cycle see how many is going to rotten
             while(size--)
             {
                 // get the axes 
