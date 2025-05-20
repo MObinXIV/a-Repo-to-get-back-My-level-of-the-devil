@@ -2,7 +2,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 // what affect it's neighbors the boundary 1 guys if we subtract them with there adjacences ,  the remianing ones 'll never reach
-
+// only the boundary one guy adjacnces can be 0's to reach out & mark the guys who w'll never reach
 void dfs(vector<vector<int>>&grid,int i , int j){
     if(i<grid.size()&& i>=0 && j>=0 && j<grid[0].size() && grid[i][j]==1){
         // mark as 0 which 'll leave it as visited & extract it out of our work 
