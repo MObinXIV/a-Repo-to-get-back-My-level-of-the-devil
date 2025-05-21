@@ -32,3 +32,30 @@ bool isCyclic(int V, vector<int>adj[]) {
         }
         return false;
     }
+    bool isCyclic(int V, vector<int>adj[]){
+        vector<int>indegree(V,0);// the indgree indicator vector
+    for(int i = 0 ; i<V;i++){
+        // traverse for all it's adjacency
+        for(int&it:adj[i])
+        indegree[it]++;// increase the number of indegree by the incoming edges to the node
+    }
+    // insert the 0 indegree nodes inside the q 
+    queue<int>q;
+    for(int i =0 ; i<V;i++)
+    {
+        if(indegree[i]==0) q.push(i);
+    }
+    int cnt=0;
+    while(!q.empty())
+    {
+        int node = q.front();
+        q.pop();
+       cnt++;
+        for(int&it:adj[node])
+        {
+            indegree[it]--;
+            if(indegree[it]==0) q.push(it);
+        }
+    }
+    return cnt==V ? false:true;
+    }
