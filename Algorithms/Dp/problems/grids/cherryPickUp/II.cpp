@@ -81,8 +81,8 @@ int cherryPickup(vector<vector<int>>& grid) {
     int r = grid.size();
     int c= grid[0].size();
         // dp[r][c][c]
-    vector<vector<int>>front(r,vector<int>(c,-1));
-    vector<vector<int>>cur(r,vector<int>(c,-1));
+    vector<vector<int>>front(r,vector<int>(c,0));
+    vector<vector<int>>cur(r,vector<int>(c,0));
         for(int j1=0;j1<c;j1++)
         {
             for(int j2=0;j2<c;j2++)
