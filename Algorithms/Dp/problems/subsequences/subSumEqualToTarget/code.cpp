@@ -21,9 +21,10 @@ bool subsetSumToK(vector<int>&arr,int k)
 bool subsetSumToK(vector<int>&arr,int k)
 {
     int n = arr.size();
-   vector<vector<bool>>dp(n,vector<bool>(k,-1)); 
+   vector<vector<bool>>dp(n,vector<bool>(k+1,-1)); 
    for(int i =0 ;i<n;i++)
    dp[i][0]=true;
+   if (arr[0] <= k)
     dp[0][arr[0]]=true;
    for(int ind=1;ind<n;ind++)
    {
