@@ -2,6 +2,7 @@
 #include<bits/stdc++.h>
 
 using namespace std;
+// same as post to in we only start from the end 
 bool isOperator(char ch) {
     return ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '%' || ch == '^';
 }
