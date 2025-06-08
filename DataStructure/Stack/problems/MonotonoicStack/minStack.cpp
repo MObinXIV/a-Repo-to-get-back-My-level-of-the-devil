@@ -91,7 +91,7 @@ public:
         if (st.empty()) return -1;
 
         long long topElement = st.top();
-        return (topElement < mini) ? mini : topElement; // Fix top() logic
+        return (topElement < mini) ? mini : topElement;
     }
     
     int getMin() {

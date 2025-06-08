@@ -44,7 +44,7 @@ vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
 
   // indexing the values 
   for (int i = 0; i < nums2.size(); i++) {
-      indexMap[nums2[i]] = i;
+      indexMap[nums2[i]] = i; // indexing it to get the value from the nge in the other vector
   }
 
   vector<int> res;
