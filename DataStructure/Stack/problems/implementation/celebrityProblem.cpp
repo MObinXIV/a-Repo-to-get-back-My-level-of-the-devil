@@ -8,7 +8,7 @@ int celebrity(vector<vector<int> >& mat) {
         while(top<down)
         {
             // if the top knows down
-            if(mat[top][down]==1) top+1;
+            if(mat[top][down]==1) top++;
             // in case down knows top
             else if (mat[down][top]==1) down--;
             //maybe celebirity
