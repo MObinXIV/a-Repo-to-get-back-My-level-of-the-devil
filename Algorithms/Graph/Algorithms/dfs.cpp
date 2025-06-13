@@ -3,13 +3,13 @@
 #include<bits/stdc++.h> 
  using namespace std;
  
-    static int cnt;
+   //  static int cnt;
  void dfs(vector<int>adj[],int node,int visited[],vector<int>&ls){
     visited[node]=1;
     ls.push_back(node);
     for(int&it:adj[node]){
         // let's visit every node adj in case if it's not even visited before 
-        cnt++;
+      //   cnt++;
         if(!visited[it])
         dfs(adj,it,visited,ls);
     }
@@ -21,7 +21,7 @@
     vector<int>ls;
     int vis[n]={0};
     dfs(adj,start,vis,ls);
-    cout<<"count is "<<cnt<<endl;
+   //  cout<<"count is "<<cnt<<endl;
 
     return ls;
  }
