@@ -7,29 +7,29 @@
 #include<bits/stdc++.h> 
  using namespace std;
 // Let's first form Lps array
-void computeLpsArray(string&pat,vector<int>&lps){
-   int n = pat.size();
-   int i =0 , j=i+1;
-   lps[0]=0;
-   while(j<n)
-   {
-      // check if there matching 
-      if(pat[i]==pat[j])
-      {
-         i++;
-         lps[j]= i;
-         
-         j++;
-      }
+void constructLps(string& pat, vector<int>& lps) {
+    int n = pat.size();
+    int len = 0;
+    lps[0] = 0;
+    int i = 1;
 
-      else{
-         // in case I matched previously & I need to go back to check again 
-         if(i!=0) 
-         i--;
-         else
-            j++;
-      }
-   }
+    while (i < n) {
+        if (pat[i] == pat[len]) {
+            len++;
+            lps[i] = len;
+            i++;
+        } else {
+         // Update len to the previous lps value
+         // to avoid reduntant comparisons
+            if (len != 0) {
+                len = lps[len - 1]; 
+            } else {
+               // If no matching prefix found, set lps[i] to 0
+                lps[i] = 0;
+                i++;
+            }
+        }
+    }
 }
 
 // O(n+m)
@@ -39,7 +39,7 @@ vector<int>search(string&pat,string&txt){
    int m = pat.size();
    vector<int>lps(m,0);
    vector<int>res;
-   computeLpsArray(pat,lps);//genarate our array lps 
+   constructLps(pat,lps);//genarate our array lps 
     int i = 0  , j =0 ; 
     while(i<n){
       if(txt[i]==pat[j])
