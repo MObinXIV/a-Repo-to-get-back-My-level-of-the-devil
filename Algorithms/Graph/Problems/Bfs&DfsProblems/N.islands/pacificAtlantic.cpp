@@ -1,7 +1,8 @@
 //https://leetcode.com/problems/pacific-atlantic-water-flow/description/
 #include<bits/stdc++.h>
 using namespace std;
-// go mark no guys , reversed think like number of islands probem
+// go mark no guys , reversed think like number of islands problem
+// we start from boundaries , go , stop when U meet one is lesser prev height which indicates we can't reach 
 void dfs(vector<vector<int>>&heights,vector<vector<bool>>&visited , int i , int j , int prevHeight){
 
     // Base cases: Out of boundaries OR already visited OR water can't flow up
