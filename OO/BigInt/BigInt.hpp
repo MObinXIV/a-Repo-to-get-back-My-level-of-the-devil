@@ -171,10 +171,6 @@ public:
         internalNumber= addNumbers(internalNumber,"1");
         return (*this);
     }
-    BigInt& operator++(){
-        internalNumber= addNumbers(internalNumber,"1");
-        return (*this);
-    }
     
 };
 
