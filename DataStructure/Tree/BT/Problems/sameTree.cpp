@@ -10,15 +10,6 @@
         left=right=NULL;
     }
  };
-
- int maxDepth(TreeNode*root , int&maxi){
-    if(root==NULL) return 0 ; 
-    
-    int lh = max(0,maxDepth(root->left,maxi));
-    int rh=max(0,maxDepth(root->right,maxi));
-    maxi = max(maxi,rh+lh+root->val);
-    return root->val+max(lh,rh);
- }
  bool isSameTree(TreeNode* p, TreeNode* q) {
     if(p==NULL || q==NULL)return (p==q);  // if both null or not        
     return (p->val==q->val)&& isSameTree(p->left,q->left)&&isSameTree(p->right,q->right);
