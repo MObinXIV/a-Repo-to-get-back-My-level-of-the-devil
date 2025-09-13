@@ -1,11 +1,6 @@
 //https://leetcode.com/problems/find-greatest-common-divisor-of-array/description/
 #include<bits/stdc++.h> 
  using namespace std; 
-
-
-
-
-
 // O(nlogn) time complexity solution
 
  int findGCD(vector<int>& nums) {
@@ -36,6 +31,16 @@ int eculdian(int a,int b){
   }
   return eculdian(b,a%b);
 }
+int findGCD(vector<int>& nums) {
+        
+        int mini =1e9,maxi=-1e9;
+       for(auto it : nums)
+       {
+         mini = min(mini,it);
+          maxi = max(maxi,it);
+       }
+       return  eculdian(maxi,mini);
+    }
  int main() 
 
  {     
