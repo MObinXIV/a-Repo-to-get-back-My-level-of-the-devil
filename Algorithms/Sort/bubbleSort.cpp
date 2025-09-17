@@ -2,8 +2,25 @@
 #include<bits/stdc++.h> 
  using namespace std;
  /*
- push the largest element to the end of the array
+Start with the first element.
 
+Compare it with the next element.
+
+If the current element is greater, swap them.
+
+Repeat this comparison for the whole array (inner loop).
+
+After one full pass, the largest element bubbles to the end of the array.
+
+Reduce the effective array size by 1.
+
+In the next pass, you don’t need to check the last sorted element.
+
+Use a flag (didSwap).
+
+If no swaps were made during a pass, it means the array is already sorted → stop early.
+
+Repeat until the array is sorted or no swaps happen.
  */
  void bubble_sort(int arr[],int n)
  {

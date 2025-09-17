@@ -19,6 +19,17 @@
     insertionSortRecursive(arr,i+1, n ); // Recursive call for smaller part
   }
  // take the element and place it in its correct position
+ /*
+ Start from the second element (since the first is trivially sorted).
+
+Compare it with the elements to its left.
+
+Shift elements that are greater than it to the right.
+
+Place the current element in the gap created (its correct position).
+
+Repeat for every element until the array is sorted.
+ */
  //O(n^2)
  void insertion_Sort(int arr[],int n){
     for(int i=1;i<n;i++)

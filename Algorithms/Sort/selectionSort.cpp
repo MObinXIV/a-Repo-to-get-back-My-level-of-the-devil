@@ -1,4 +1,9 @@
 // selection sort
+
+/**
+ * select the minimum guy & palace it into it's right position
+ */
+
 #include<bits/stdc++.h> 
  using namespace std;
  

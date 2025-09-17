@@ -18,12 +18,27 @@
         
         for(int right =0;right<nums.size();right++){
             preSum+=nums[right];
+         /*
+         It calculates the total number of operations (the cost) required to make all elements within the current sliding window [left, right] equal to the largest element, which is nums[right].
+
+right - left + 1: This is the size of the current window.
+
+nums[right]: This is the target value that all elements in the window are being incremented to.
+
+(right - left + 1) * nums[right]: This is the total sum of the elements if every element in the window were equal to nums[right].
+
+preSum: This is the actual sum of the elements in the current window [left, right].
+
+The cost is the difference between the target sum and the actual sum: (target sum) - (actual sum).
+         */
+
             // keep the window to grow till I hit my cost  k & be invalid
+            // the real question , we ask here can We expand the  window size  with our cost & be valid
             while((right-left+1)*nums[right]-preSum>k) // in case I can expand
             {
                // element the element from my window 
                preSum-= nums[left];
-               // shrink the window size to maximize 
+               // shrink the window size till we got valid
                left++;
             }
             // keep maximizing my window size 
