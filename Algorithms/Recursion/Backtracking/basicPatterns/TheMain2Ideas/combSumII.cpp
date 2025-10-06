@@ -3,8 +3,8 @@
 using namespace std;
 /**
  * repeated pick/not pick
+ * 
  */
-//Tc-> O(2^n *k) / Sc->k*x
 void f(int i, vector<int>&nums,int target,vector<int>ds,vector<vector<int>>&ans)
 {
   if(target==0)      
