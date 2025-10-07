@@ -39,6 +39,7 @@ int partition(vector<int>&arr, int low , int high){
 void quick_sort(vector<int>&arr,int l, int r){
     if(l<r)
     {
+        // place the pivot into it's right place index
         int pIndex=partition(arr,l,r);
         quick_sort(arr,l,pIndex-1); // sort the left half
         quick_sort(arr,pIndex+1,r);// sort the right half
