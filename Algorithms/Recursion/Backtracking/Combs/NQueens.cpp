@@ -8,10 +8,12 @@ using namespace std;
 
 
 /**
- * \ , / , <-  .. we check this directions according to our placements going col by col from left to right
+ * \ , / , <-  .. we check this directions(upper-left , down-left & left) according to our placements going col by col from left to right
  * 
  */
-bool isSafe(int row , int col , vector<string>board,int n){  
+class Solution {
+public:
+    bool isSafe(int row , int col , vector<string>board,int n){  
   /// I don't need to go up to check as I gurantee I place only one q in each column
   /// we don't go upper right as queens goes from left to right 
   int dupRow = row ;
@@ -54,14 +56,15 @@ void solve (int col , vector<string>&board,vector<vector<string>>&ans, int n)
     ans.push_back(board);
     return;
   }
-  // checkOut every row valditiy for the current col
+  // check the possibility for every row
   for(int i = 0 ; i<n;i++)
   {
-    // if the current position is valid I replace on it 
+    // see if I can fill the current row is valid
     if(isSafe(i,col,board,n)){
       // if I can go deep to the next replacement 
-      //move to the next column & try
+      //mark it
       board[i][col]='Q';
+      // go check the next column
       solve(col+1,board,ans,n);
       // please when U back , backtrack
       board[i][col]='.';
@@ -69,8 +72,18 @@ void solve (int col , vector<string>&board,vector<vector<string>>&ans, int n)
   }
 
 }
+vector<vector<string>> solveNQueens(int n) {
+    vector<vector<string>>ans;
+    vector<string>board(n);
+    string s(n,'.');
+    // fill my board of string with points(it works as 2d arr of strings by the way )
+    for(int i = 0; i<n;i++)
+    board[i]=s;//make an empty chess board
 
-
+    solve(0,board,ans,n);
+    return ans;
+}
+};
 void solveI (int col , vector<string>&board,vector<vector<string>>&ans,vector<int>&leftRow, vector<int>&upperDiagonal, vector<int>&lowerDiagonal, int n)
 {
   // if I can fill the last col
