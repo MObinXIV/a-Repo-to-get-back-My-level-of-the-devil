@@ -19,7 +19,10 @@ sum=0;
 }
 return cnt;
 }
-
+/**
+ * in case the map counts the occur of sum
+ * or even occur of sum -k which goes by formula to sum we got it 
+ */
 int subarraySum(vector<int>& nums, int k) {
   if(nums.size()==0) return 0 ;
   int sum=0,cnt=0;
