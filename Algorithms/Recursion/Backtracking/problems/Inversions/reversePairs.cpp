@@ -24,10 +24,13 @@ int merge(vector<int>&arr,int l , int mid , int r){
     int j = mid + 1;
     
     // Step 1: Count reverse pairs before merging
+    // check for every guy in the left array , can it forms a pair with the right guys in the right array
     for (int i = l; i <= mid; i++) {
         while (j <= r && arr[i] > 2LL * arr[j]) {
+           // go till it's valid to form a valid pair
             j++;
         }
+        // add the number of elements 
         cnt += (j - (mid + 1));
     }
   // low -> mid and mid+1 -> high

@@ -1,7 +1,7 @@
-//https://www.geeksforgeeks.org/problems/delete-middle-element-of-a-stack/1&selectedLang=python3
+//https://www.geeksforgeeks.org/problems/inversion-of-array-1587115620/1
 #include<bits/stdc++.h> 
 using namespace std;
-
+// see how many elements in the left bigger than the right using sorting with merge-sort
 int merge(vector<int>&arr,int l , int mid , int r){
   // low -> mid and mid+1 -> high
   vector<int>tmp;
@@ -14,7 +14,7 @@ int merge(vector<int>&arr,int l , int mid , int r){
           tmp.push_back(arr[low]);
           low++;
       }
-      // here we say the right is the smaller
+      // here we say the right is the smaller , so all the guys in the left array are bigger
       else{
           tmp.push_back(arr[high]);
           cnt+=(mid-low+1);
