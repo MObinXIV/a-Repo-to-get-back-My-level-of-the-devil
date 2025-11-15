@@ -21,15 +21,15 @@
          /*
          It calculates the total number of operations (the cost) required to make all elements within the current sliding window [left, right] equal to the largest element, which is nums[right].
 
-right - left + 1: This is the size of the current window.
+         right - left + 1: This is the size of the current window.
 
-nums[right]: This is the target value that all elements in the window are being incremented to.
+         nums[right]: This is the target value that all elements in the window are being incremented to.
 
-(right - left + 1) * nums[right]: This is the total sum of the elements if every element in the window were equal to nums[right].
+         (right - left + 1) * nums[right]: This is the total sum of the elements if every element in the window were equal to nums[right].
 
-preSum: This is the actual sum of the elements in the current window [left, right].
+         preSum: This is the actual sum of the elements in the current window [left, right].
 
-The cost is the difference between the target sum and the actual sum: (target sum) - (actual sum).
+         The cost is the difference between the target sum and the actual sum: (target sum) - (actual sum).
          */
 
             // keep the window to grow till I hit my cost  k & be invalid

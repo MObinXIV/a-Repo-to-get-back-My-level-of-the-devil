@@ -1,3 +1,5 @@
+#include<bits/stdc++.h>
+using namespace std;
 void merge(vector<pair<int,int>>& arr, int l, int mid, int r, vector<int>& count) {
     vector<pair<int,int>> temp; // temporary array for merged result
     int i = l;                  // pointer for left half
