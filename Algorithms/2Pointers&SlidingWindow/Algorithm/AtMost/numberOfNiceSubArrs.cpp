@@ -17,6 +17,19 @@ int atMost(vector<int>& nums, int k) {
 int numberOfSubarrays(vector<int>& nums, int k) {
  return  atMost(nums,k)-atMost(nums,k-1);      
 }
+
+// subArr sum = k 
+int numberOfSubarrays(vector<int>& nums, int k) {
+  int curS=0,subArr=0;
+  unordered_map<int,int>mp;
+  mp[curS]=1;
+  for(int i=0;i<nums.size();i++){
+    curS+=nums[i]%2;
+    if(mp.find(curS-k)!=mp.end()) subArr+=mp[curS-k];
+    mp[curS]++;
+  }
+  return subArr;
+}
 int main() 
  {
       vector<int>arr={1,1,2,1,1};

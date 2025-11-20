@@ -1,6 +1,9 @@
 //https://leetcode.com/problems/spiral-matrix/description/
 #include<bits/stdc++.h> 
  using namespace std;
+ /**
+  * follow the spiral roles in every cycle
+  */
  vector<int> spiralOrder(vector<vector<int>>& matrix) {
         int n = matrix.size() , m = matrix[0].size();
         vector<int>res;
@@ -11,7 +14,7 @@
           // get the right part 
           for(int j = left;j<=right;j++)
           res.push_back(matrix[top][j]);
-          top++; // move the pointer down to not rpeat the last value in the row when we go down
+          top++; // move the pointer down to not repeat the last value in the row when we go down
           // go bottom 
           for(int i = top ;i<=bottom;i++)
           res.push_back(matrix[i][right]);
