@@ -18,5 +18,24 @@
          }
 
          return res;
-
  }
+
+vector<vector<int>> merge(vector<vector<int>>& intervals){
+  if(intervals.empty()) return {};
+  // our result
+  vector<vector<int>>merged_intervals;
+  sort(intervals.begin(),intervals.end());
+  vector<int>tmpInterval=intervals[0];
+  // let's iterate 
+  for(auto&it:intervals){
+    // check if we keep merging  is valid 
+    if(it[0]<=tmpInterval[1]) tmpInterval[1]=max(tmpInterval[1],it[1]);
+    // otherwise, we push the interval into our result
+    else{
+      merged_intervals.push_back(tmpInterval);
+      tmpInterval=it;
+    }
+  }
+  merged_intervals.push_back(tmpInterval);
+  return merged_intervals;
+}
